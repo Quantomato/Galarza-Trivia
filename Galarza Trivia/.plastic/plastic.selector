@@ -1,0 +1,4 @@
+repository "Galarza Trivia@Quantomato@cloud"
+  path "/"
+    br "/main"
+    co "/main"
