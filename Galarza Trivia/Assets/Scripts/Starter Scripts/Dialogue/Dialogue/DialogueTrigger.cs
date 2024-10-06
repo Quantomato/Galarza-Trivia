@@ -2,6 +2,8 @@
 using System.IO;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEditor;
 
 //A script by Michael O'Connell, extended by Benjamin Cohen
 
@@ -19,12 +21,25 @@ public class DialogueTrigger : MonoBehaviour
     public bool hasBeenUsed = false;
     bool inArea = false;
 
+    
+
 
     // public bool useCollision; // unused for now
 
     private void Start()
     {
         manager = FindObjectOfType<DialogueManager>();
+        //Writer
+        string path = "Assets/Scripts/Starter Scripts/Dialogue/NPC_Interaction_1.txt";
+        Debug.Log(path);
+        using (var writer = new StreamWriter(path, false))
+        {
+            Debug.Log("Writing...");
+            writer.WriteLine("[NAME=Player][SPEAKERSPRITE=Player] Hello, where am I?");
+            writer.WriteLine("[NAME=Galarza][SPEAKERSPRITE=Galarza] Hello, I am Galarza.");
+            writer.Close();
+        }
+        AssetDatabase.Refresh();
     }
 
 
@@ -85,6 +100,25 @@ public class DialogueTrigger : MonoBehaviour
 
     }
 
+    public void UpdateText(string question, string a1, string a2, string a3, string a4)
+    {
+        string path = "Assets/Scripts/Starter Scripts/Dialogue/NPC_Interaction_1.txt";
+        Debug.Log(path);
+        using (var writer = new StreamWriter(path, false))
+        {
+            Debug.Log("Writing...");
+            writer.WriteLine("[NAME=Galarza][SPEAKERSPRITE=Galarza] Alright, here's your question: ");
+            writer.WriteLine("[NAME=Galarza][SPEAKERSPRITE=Galarza] " + question);
+            writer.WriteLine("[NAME=Galarza][SPEAKERSPRITE=Galarza] Here are your answer choices: ");
+            writer.WriteLine("[NAME=Galarza][SPEAKERSPRITE=Galarza] A. " + a1);
+            writer.WriteLine("[NAME=Galarza][SPEAKERSPRITE=Galarza] B. " + a2);
+            writer.WriteLine("[NAME=Galarza][SPEAKERSPRITE=Galarza] C. " + a3);
+            writer.WriteLine("[NAME=Galarza][SPEAKERSPRITE=Galarza] D. " + a4);
+            writer.Close();
+        }
+        AssetDatabase.Refresh();
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "Player" && !hasBeenUsed)
@@ -108,6 +142,5 @@ public class DialogueTrigger : MonoBehaviour
             manager.EndDialogue();
         }
         inArea = false;
-
     }
 }
