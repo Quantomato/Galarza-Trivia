@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
+using UnityEditor;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -16,6 +18,7 @@ public class GameManager : MonoBehaviour
     public string b;
     public string c;
     public string d;
+    DialogueTrigger dialogue = new DialogueTrigger();
 
     //Declare variables for answer choice collisions
     public GameObject choiceA;
@@ -140,7 +143,7 @@ public class GameManager : MonoBehaviour
         b = currentQuestion.answers[1];
         c = currentQuestion.answers[2];
         d = currentQuestion.answers[3];
-        updateText(currentQuestion.question, a, b, c, d);
+        dialogue.UpdateText(currentQuestion.question, a, b, c, d);
     }
 
     public Boolean onTrigger(string returnString) 
@@ -219,9 +222,5 @@ public class GameManager : MonoBehaviour
             array.Add(q40);
             return array;
         }
-
-    public void updateText(string question, string a1, string a2, string a3, string a4) 
-    { // delete once integrated w/ dialogue trigger
-    }
 }
 
