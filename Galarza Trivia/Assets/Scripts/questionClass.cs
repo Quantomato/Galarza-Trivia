@@ -14,4 +14,11 @@ public class question
         this.correctAnswer = answerList[0];
         this.answerList = answerList;
     }
+
+    public question(question passedQuestion) 
+    {
+        questionLine = passedQuestion.questionLine;
+        correctAnswer = passedQuestion.correctAnswer;
+        answerList = passedQuestion.answerList;
+    }
 }
