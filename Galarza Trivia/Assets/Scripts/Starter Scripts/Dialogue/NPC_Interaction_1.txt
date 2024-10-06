@@ -1,0 +1,3 @@
+[NAME=Player][SPEAKERSPRITE=Player] Hello? What is this place?
+[NAME=NPC][SPEAKERSPRITE=NPC] Hello. I am Galarza.
+[NAME=Player][SPEAKERSPRITE=Player] Galarza?
