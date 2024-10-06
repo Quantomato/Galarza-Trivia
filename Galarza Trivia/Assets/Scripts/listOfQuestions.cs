@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class listOfQuestions
 {
-    question[] questionList = new question[10];
+    public question[] questionList = new question[10];
 
     question science0 = new question("What unit is electric power measured in?",
         new string[] { "Watts", "Ohms", "Newtons", "Fractals" });

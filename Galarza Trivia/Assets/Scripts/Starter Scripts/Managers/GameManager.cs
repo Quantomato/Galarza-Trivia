@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     listOfQuestions questionList;
     List<int> askedQuestionIndexList;
+    question currentQuestion;
     //This component should be placed on a gameobject in your scene
 
     [HideInInspector]
@@ -35,5 +37,28 @@ public class GameManager : MonoBehaviour
     public void SetNewRespawnPlace(GameObject newPlace)//This is 
     {
         RespawnPlace = newPlace.transform.position;
+    }
+
+    public void selectQuestion() 
+    {
+        int findNumber = 0;
+        Boolean check = true;
+        while (check)
+        {
+            findNumber = (int)(UnityEngine.Random.Range(0, questionList.questionList.Length));
+            for (int i = 0; i < askedQuestionIndexList.Count; i++) 
+            {
+                if (findNumber == askedQuestionIndexList[i])
+                {
+                    findNumber = (int)(UnityEngine.Random.Range(0, questionList.questionList.Length));
+                }
+                else
+                {
+                    check = false;
+                }
+            }
+        }
+        askedQuestionIndexList.Add(findNumber);
+        currentQuestion = questionList.questionList[findNumber];
     }
 }
