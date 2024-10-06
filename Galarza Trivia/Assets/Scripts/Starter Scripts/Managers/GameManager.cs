@@ -11,11 +11,11 @@ public class GameManager : MonoBehaviour
     List<Questions> questionList = new List<Questions>();
     List<int> askedQuestionIndexList = new List<int>();
     Questions currentQuestion;
-    string currentCorrect;
-    string a;
-    string b;
-    string c;
-    string d;
+    public string currentCorrect;
+    public string a;
+    public string b;
+    public string c;
+    public string d;
 
     //Declare variables for answer choice collisions
     public GameObject choiceA;
@@ -140,6 +140,7 @@ public class GameManager : MonoBehaviour
         b = currentQuestion.answers[1];
         c = currentQuestion.answers[2];
         d = currentQuestion.answers[3];
+        updateText(currentQuestion.question, a, b, c, d);
     }
 
     public Boolean onTrigger(string returnString) 
@@ -218,5 +219,9 @@ public class GameManager : MonoBehaviour
             array.Add(q40);
             return array;
         }
+
+    public void updateText(string question, string a1, string a2, string a3, string a4) 
+    { // delete once integrated w/ dialogue trigger
+    }
 }
 
