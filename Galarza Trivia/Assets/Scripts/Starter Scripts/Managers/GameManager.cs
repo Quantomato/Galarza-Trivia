@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     List<Questions> questionList = new List<Questions>();
     List<int> askedQuestionIndexList = new List<int>();
     Questions currentQuestion;
-    string currentCorrect;
+    public string currentCorrect;
     public string a;
     public string b;
     public string c;

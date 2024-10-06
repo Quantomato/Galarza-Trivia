@@ -24,17 +24,20 @@ public class AnswerTrigger : MonoBehaviour
         if (answer.gameObject.name == "Answer_A")
         {
             Debug.Log("Collision with Answer A");
-            if(currentCorrect == a){
+            if (gameManager.currentCorrect == gameManager.a)
+            {
                 Debug.Log("You chose correct m8");
 
-            } else { 
+            }
+            else
+            {
                 Debug.Log("You chose wrong twerp");
             }
         }
         else if (answer.gameObject.name == "Answer_B")
         {
             Debug.Log("Collision with Answer B");
-            if(currentCorrect == b){
+            if(gameManager.currentCorrect == gameManager.b){
                 Debug.Log("You chose correct m8");
 
             } else { 
@@ -43,7 +46,7 @@ public class AnswerTrigger : MonoBehaviour
         }
         else if (answer.gameObject.name == "Answer_C")
         {
-            if(currentCorrect == c){
+            if(gameManager.currentCorrect == gameManager.c){
                 Debug.Log("You chose correct m8");
 
             } else { 
@@ -53,7 +56,7 @@ public class AnswerTrigger : MonoBehaviour
         }
         else if (answer.gameObject.name == "Answer_D")
         {
-            if(currentCorrect == d){
+            if(gameManager.currentCorrect == gameManager.d){
                 Debug.Log("You chose correct m8");
 
             } else { 
