@@ -7,6 +7,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    Boolean gameState = true;
     List<Questions> questionList = new List<Questions>();
     List<int> askedQuestionIndexList = new List<int>();
     Questions currentQuestion;
