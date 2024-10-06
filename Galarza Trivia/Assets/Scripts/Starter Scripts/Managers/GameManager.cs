@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
         }
         RespawnPlace = Player.transform.position;
 
+        currentQuestion = new listOfQuestions("test", "a", "b", "c", "d");
         questionList = currentQuestion.addQuestions(questionList);
     }
 

@@ -6,15 +6,20 @@ using UnityEngine;
 public class listOfQuestions
 {
     public string question = "";
-    public string[] answers;
+    public string[] answers = new string[4];
 
-    public listOfQuestions(String q, String a0, String a1, String a2, String a3)
+    public listOfQuestions(string q, string a0, string a1, string a2, string a3)
     {
         question = q;
+        Console.WriteLine(question + " " + q);
         answers[0] = a0;
+        Console.WriteLine(answers[0] + " " + a0);
         answers[1] = a1;
+        Console.WriteLine(answers[1] + " " + a1);
         answers[2] = a2;
+        Console.WriteLine(answers[2] + " " + a2);
         answers[3] = a3;
+        Console.WriteLine(answers[3] + " " + a3);
     }
 
     public listOfQuestions(listOfQuestions copy) 
