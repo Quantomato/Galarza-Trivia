@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     listOfQuestions questionList;
     List<int> askedQuestionIndexList;
     question currentQuestion;
+    char currentCharacter;
     //This component should be placed on a gameobject in your scene
 
     [HideInInspector]
@@ -59,6 +60,14 @@ public class GameManager : MonoBehaviour
             }
         }
         askedQuestionIndexList.Add(findNumber);
-        currentQuestion = questionList.questionList[findNumber];
+        currentQuestion = new question(questionList.questionList[findNumber]);
+        scrambleBoard();
     }
+
+    public void scrambleBoard() 
+    {
+        
+    }
+
+    public void setBoard() { }
 }
