@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: New_Library
   m_EditorClassIdentifier: 
   speakerLibrary:
-  - name: Calvin
-    sprite: {fileID: 534324711, guid: 6230878954a54804f8df23572cd05663, type: 3}
+  - name: Player
+    sprite: {fileID: -1501972256, guid: 6e3db0c899893a24bb53d782466b5510, type: 3}
   - name: NPC
-    sprite: {fileID: 832896536, guid: 534641f18d208744dbf448ce29476152, type: 3}
+    sprite: {fileID: -1154003956, guid: 046fecc8da1f7864b8c4a0ac60a796d7, type: 3}
