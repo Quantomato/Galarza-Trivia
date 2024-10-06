@@ -15,6 +15,13 @@ public class GameManager : MonoBehaviour
     string b;
     string c;
     string d;
+
+    //Declare variables for answer choice collisions
+    public GameObject choiceA;
+    public GameObject choiceB;
+    public GameObject choiceC;
+    public GameObject choiceD;
+
     //This component should be placed on a gameobject in your scene
 
     [HideInInspector]
@@ -86,7 +93,7 @@ public class GameManager : MonoBehaviour
         Player.transform.position = RespawnPlace;
     }
 
-    public void SetNewRespawnPlace(GameObject newPlace)//This is 
+    public void SetNewRespawnPlace(GameObject newPlace)
     {
         RespawnPlace = newPlace.transform.position;
     }
