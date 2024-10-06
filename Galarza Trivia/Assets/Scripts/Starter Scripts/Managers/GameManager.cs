@@ -11,7 +11,6 @@ public class GameManager : MonoBehaviour
     List<int> askedQuestionIndexList;
     listOfQuestions currentQuestion;
     string currentCorrect;
-    char currentCharacter;
     string a;
     string b;
     string c;
@@ -90,5 +89,37 @@ public class GameManager : MonoBehaviour
         b = currentQuestion.answers[1];
         c = currentQuestion.answers[2];
         d = currentQuestion.answers[3];
+    }
+
+    public Boolean onTrigger(string returnString) 
+    {
+        if (returnString == "a")
+        {
+            if (currentCorrect == a) { return true; }
+            else { return false; }
+        }
+        else if (returnString == "b")
+        {
+            if (currentCorrect == b) { return true; }
+            else { return false; }
+
+        }
+        else if (returnString == "c")
+        {
+            if (currentCorrect == c) { return true; }
+            else { return false; }
+
+        }
+        else if (returnString == "d")
+        {
+            if (currentCorrect == d) { return true; }
+            else { return false; }
+
+        }
+        else 
+        {
+            Console.WriteLine("Something has gone wrong in onTrigger, or what is being passed into it");
+            return false;
+        }
     }
 }
