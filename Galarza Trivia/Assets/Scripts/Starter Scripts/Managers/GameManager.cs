@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    listOfQuestions questionList;
+    List<listOfQuestions> questionList;
     List<int> askedQuestionIndexList;
-    question currentQuestion;
+    listOfQuestions currentQuestion;
     char currentCharacter;
     //This component should be placed on a gameobject in your scene
 
@@ -24,6 +24,8 @@ public class GameManager : MonoBehaviour
             Player = FindObjectOfType<PlayerMovement>().gameObject;
         }
         RespawnPlace = Player.transform.position;
+
+        currentQuestion.addQuestions(questionList);
     }
 
     public void Respawn(GameObject Player)//This is just where we respawn the player
@@ -46,12 +48,12 @@ public class GameManager : MonoBehaviour
         Boolean check = true;
         while (check)
         {
-            findNumber = (int)(UnityEngine.Random.Range(0, questionList.questionList.Length));
+            findNumber = (int)(UnityEngine.Random.Range(0, questionList.Count));
             for (int i = 0; i < askedQuestionIndexList.Count; i++) 
             {
                 if (findNumber == askedQuestionIndexList[i])
                 {
-                    findNumber = (int)(UnityEngine.Random.Range(0, questionList.questionList.Length));
+                    findNumber = (int)(UnityEngine.Random.Range(0, questionList.Count));
                 }
                 else
                 {
@@ -60,7 +62,7 @@ public class GameManager : MonoBehaviour
             }
         }
         askedQuestionIndexList.Add(findNumber);
-        currentQuestion = new question(questionList.questionList[findNumber]);
+        currentQuestion = new listOfQuestions(questionList[findNumber]);
         scrambleBoard();
     }
 
