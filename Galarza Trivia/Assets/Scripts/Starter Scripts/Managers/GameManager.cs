@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    listOfQuestions questionList;
+    List<int> askedQuestionIndexList;
     //This component should be placed on a gameobject in your scene
 
     [HideInInspector]
