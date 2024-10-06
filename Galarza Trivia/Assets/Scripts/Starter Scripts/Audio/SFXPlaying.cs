@@ -1,5 +1,5 @@
-using system.Collections;
-using system.Collections.Generic;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class SFXPlaying : MonoBehaviour {
@@ -8,11 +8,11 @@ public class SFXPlaying : MonoBehaviour {
     public AudioSource Correct;
 
     public void PlayWrong() {
-        Wrong.play();
+        Wrong.Play();
     }
 
     public void PlayCorrect() {
-        Correct.play();
+        Correct.Play();
     }
 
 
