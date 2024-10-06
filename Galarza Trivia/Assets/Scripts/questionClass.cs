@@ -5,17 +5,17 @@ using UnityEngine;
 
 public class listOfQuestions
 {
-    string question = "";
-    string[] answers;
+    public string question = "";
+    public string[] answers;
 
     public listOfQuestions(String q, String a0, String a1, String a2, String a3)
-        {
+    {
         question = q;
         answers[0] = a0;
         answers[1] = a1;
         answers[2] = a2;
         answers[3] = a3;
-        }
+    }
 
     public listOfQuestions(listOfQuestions copy) 
     { 
@@ -65,7 +65,7 @@ public class listOfQuestions
         listOfQuestions q38 = new listOfQuestions("What is 2 to the power of 2?", "4", "5", "22", "2");
         listOfQuestions q39 = new listOfQuestions("What is 30/2", "15", "54", "23", "40");
         listOfQuestions q40 = new listOfQuestions("What is 1 x 43?", "43", "1", "34", "40");
-        public void addQuestions(List<listOfQuestions> array)
+        public List<listOfQuestions> addQuestions(List<listOfQuestions> array)
         {
             array.Add(q1);
             array.Add(q2);
@@ -107,6 +107,7 @@ public class listOfQuestions
             array.Add(q38);
             array.Add(q39);
             array.Add(q40);
+            return array;
         }
 
     }

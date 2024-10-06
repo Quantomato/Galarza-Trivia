@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+using System.Security.Cryptography;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -8,7 +10,12 @@ public class GameManager : MonoBehaviour
     List<listOfQuestions> questionList;
     List<int> askedQuestionIndexList;
     listOfQuestions currentQuestion;
+    string currentCorrect;
     char currentCharacter;
+    string a;
+    string b;
+    string c;
+    string d;
     //This component should be placed on a gameobject in your scene
 
     [HideInInspector]
@@ -25,7 +32,7 @@ public class GameManager : MonoBehaviour
         }
         RespawnPlace = Player.transform.position;
 
-        currentQuestion.addQuestions(questionList);
+        questionList = currentQuestion.addQuestions(questionList);
     }
 
     public void Respawn(GameObject Player)//This is just where we respawn the player
@@ -63,13 +70,25 @@ public class GameManager : MonoBehaviour
         }
         askedQuestionIndexList.Add(findNumber);
         currentQuestion = new listOfQuestions(questionList[findNumber]);
+        currentCorrect = currentQuestion.answers[0];
         scrambleBoard();
     }
 
     public void scrambleBoard() 
     {
-        
+        System.Random rng = new System.Random();
+        int n = currentQuestion.answers.Length;
+        while (n > 1) 
+        {
+            n--;
+            int k = rng.Next(n + 1);
+            string value = currentQuestion.answers[k];
+            currentQuestion.answers[k] = currentQuestion.answers[n];
+            currentQuestion.answers[n] = value;
+        }
+        a = currentQuestion.answers[0];
+        b = currentQuestion.answers[1];
+        c = currentQuestion.answers[2];
+        d = currentQuestion.answers[3];
     }
-
-    public void setBoard() { }
 }
