@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEditor;
+using System.IO.Pipes;
 
 //A script by Michael O'Connell, extended by Benjamin Cohen
 
@@ -21,8 +22,10 @@ public class DialogueTrigger : MonoBehaviour
     public bool hasBeenUsed = false;
     bool inArea = false;
 
-    
-
+    //Variables to make the NPC and Player move
+    public GameObject NPC;
+    public GameObject Player;
+    private int hasTeleported = 0;
 
     // public bool useCollision; // unused for now
 
@@ -150,6 +153,16 @@ public class DialogueTrigger : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             manager.EndDialogue();
+            NPC.transform.position = new Vector2(1.805f, -0.484f);
+            if (hasTeleported < 2)
+            {
+                hasTeleported+=1;
+                
+            }
+            else
+            {
+                Player.transform.position = new Vector2(2.223235f, 0.4716103f);
+            }
         }
         inArea = false;
     }
