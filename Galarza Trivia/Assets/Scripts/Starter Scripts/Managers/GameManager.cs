@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
 
     [Tooltip("Place your player game object in here so this knows where to handle respawns")]
     public GameObject Player;
-   //Create the questions
+    //Create the questions
     Questions q1 = new Questions("What unit is electric power measured in?", "Watts", "Ohms", "Newtons", "Fractals");
     Questions q2 = new Questions("What is the name of the scientist who discovered gravity?", "Isaac Newton", "Robert Oppenheimer", "Albert Einstein", "Benjamin Franklin");
     Questions q3 = new Questions("What is the name of the galaxy we live in?", "The Milky Way", "The Pinwheel", "The Andromeda", "The Triangulum");
@@ -83,9 +83,10 @@ public class GameManager : MonoBehaviour
         }
         RespawnPlace = Player.transform.position;
 
-        currentQuestion = new Questions("test", "a", "b", "c", "d");
         //Create the question list
+        currentQuestion = new Questions("test", "a", "b", "c", "d");
         questionList = addQuestions(questionList);
+        selectQuestion();
     }
 
     public void Respawn(GameObject Player)//This is just where we respawn the player
@@ -106,19 +107,17 @@ public class GameManager : MonoBehaviour
     {
         int findNumber = 0;
         Boolean check = true;
-        while (check)
+        findNumber = (int)(UnityEngine.Random.Range(0, questionList.Count));
+        for (int i = 0; i < askedQuestionIndexList.Count; i++) 
         {
-            findNumber = (int)(UnityEngine.Random.Range(0, questionList.Count));
-            for (int i = 0; i < askedQuestionIndexList.Count; i++) 
+            if (findNumber == askedQuestionIndexList[i])
             {
-                if (findNumber == askedQuestionIndexList[i])
-                {
-                    findNumber = (int)(UnityEngine.Random.Range(0, questionList.Count));
-                }
-                else
-                {
-                    check = false;
-                }
+                findNumber = (int)(UnityEngine.Random.Range(0, questionList.Count));
+            }
+            else
+            {
+                check = false;
+                break;
             }
         }
         askedQuestionIndexList.Add(findNumber);
