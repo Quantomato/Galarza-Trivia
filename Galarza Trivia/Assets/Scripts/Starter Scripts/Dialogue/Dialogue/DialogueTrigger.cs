@@ -35,8 +35,18 @@ public class DialogueTrigger : MonoBehaviour
         using (var writer = new StreamWriter(path, false))
         {
             Debug.Log("Writing...");
-            writer.WriteLine("[NAME=Player][SPEAKERSPRITE=Player] Hello, where am I?");
-            writer.WriteLine("[NAME=Galarza][SPEAKERSPRITE=Galarza] Hello, I am Galarza.");
+            writer.WriteLine("[NAME=Player][SPEAKERSPRITE=Player] Where am I? Who are you?");
+            writer.WriteLine("[NAME=????][SPEAKERSPRITE=????] Oh, a new person! Hello, I could really use your help.");
+            writer.WriteLine("[NAME=Player][SPEAKERSPRITE=Player] I want to help you, but can you please tell me where we are first?");
+            writer.WriteLine("[NAME=Galarza][SPEAKERSPRITE=Galarza] Right, sorry; My name is Jahyr Galarza and we're in the mysterious Fey Forest.");
+            writer.WriteLine("[NAME=Player][SPEAKERSPRITE=Player] Fey Forest? What's that?");
+            writer.WriteLine("[NAME=Galarza][SPEAKERSPRITE=Galarza] It's a magical forest controlled by faeries, and they trap people in here until they can finish a test.");
+            writer.WriteLine("[NAME=Player][SPEAKERSPRITE=Player] What's the test that we need to do?");
+            writer.WriteLine("[NAME=Galarza][SPEAKERSPRITE=Galarza] We need to answer some questions about science, technology, engineering, and math. I didn't study much of that yet in school, so I was hoping you could help me.");
+            writer.WriteLine("[NAME=Player][SPEAKERSPRITE=Player] Ok I think I can do that, how do I answer the questions?");
+            writer.WriteLine("[NAME=Galarza][SPEAKERSPRITE=Galarza] The questions will show up on your screen, and to input your answers just jump to the answer choice you want to pick.");
+            writer.WriteLine("[NAME=Player][SPEAKERSPRITE=Player] Ok Galarza, I'll see if I can get us out of here.");
+            writer.WriteLine("[NAME=Galarza][SPEAKERSPRITE=Galarza] Good luck!");
             writer.Close();
         }
         AssetDatabase.Refresh();
